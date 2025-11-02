@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.3.1/core.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="module" src="https://pyscript.net/releases/2024.3.1/core.js"></script>
+    <title>Cafe Delights</title>
+    <style>
+        body{
+            background-color: skyblue;
+        }
+
+        h1{
+            text-align: center;
+            color: black;
+            background-color: white;
+            border: solid;
+            padding: 1%;
+        }
+
+        img{
+            border: solid;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-success navbar-dark fixed top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-coffee me-2"></i>Cafe Delights</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="ordering_form.html">Order Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact_us.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container py-5">
+        <div class="order-container p-4 mb-4">
+            <h1 class="text-primary mb-4 text-center">Food Ordering System</h1>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-primary mb-3">Menu:</h3>
+                    
+                    <div class="form-check menu-item">
+                        <img src="rolls.jpg" width="70%" class="food-img" alt="Sausage Rolls">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item1" value=79.99>
+                            <label class="form-check-label" for="item1">Sausage Rolls</label>
+                            <div class="price-tag">₱79.99</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check menu-item">
+                        <img src="bagel.jpg" width="70%" class="food-img" alt="Bagel">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item2" value=50>
+                            <label class="form-check-label" for="item2">Bagel</label>
+                            <div class="price-tag">₱50.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check menu-item">
+                        <img src="chicken.jpg" width="70%" class="food-img" alt="Chicken Sandwich">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item3" value=150>
+                            <label class="form-check-label" for="item3">Chicken Sandwich</label>
+                            <div class="price-tag">₱150.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check menu-item">
+                        <img src="americano.jpg" width="70%" class="food-img" alt="Americano">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item4" value=30>
+                            <label class="form-check-label" for="item4">Americano</label>
+                            <div class="price-tag">₱30.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check menu-item">
+                        <img src="iced.jpg" width="70%" class="food-img" alt="Iced tea">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item5" value=20>
+                            <label class="form-check-label" for="item5">Ice tea</label>
+                            <div class="price-tag">₱20.00</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h3 class="text-primary mb-3">Customer Details:</h3>
+                    <div class="mb-3">
+                        <label for="customer" class="form-label">Customer Name</label>
+                        <input type="text" class="form-control" id="customer" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact_number" class="form-label">Contact Number</label>
+                        <input type="text" class="form-control" id="contact_number" placeholder="Enter your contact number">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-grid gap-2 col-md-6 mx-auto mt-4">
+                <button class="btn btn-primary btn-lg" type="submit" py-click="create_order">Create Order</button>
+            </div>
+        </div>
+        
+        <div class="order-container p-4">
+            <h3 class="text-primary mb-3">Order Summary:</h3>
+            <div id="order_output1" class="mb-2"></div>
+            <div id="order_output2" class="mb-2"></div>
+            <div id="order_output3" class="mb-2"></div>
+            <div id="show" class="h4 text-primary mt-3"></div>
+        </div>
+    </div>
+    
+    <center>
+        <a href="home.html">
+            <button class="back-btn">
+                <i class="fas fa-arrow-left me-2"></i>Back to Home
+            </button>
+        </a>
+    </center>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="py" src="main2.py"></script>
+</body>
+</html>
